@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="common/common_header::header">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="div-block">
+<form class="layui-form" id="form">
+    <div class="layui-form-item">
+        <label class="layui-form-label">文章标题</label>
+        <div class="layui-input-block">
+            <input type="text" name="name" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">单选框</label>
+        <div class="layui-input-block">
+            <input type="radio" name="sex" value="男" title="男"><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon layui-anim-scaleSpring">&#xe643;</i><div>男</div></div>
+            <input type="radio" name="sex" value="女" title="女"><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon">&#xe643;</i><div>女</div></div>
+        </div>
+    </div>
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label">文本域</label>
+        <div class="layui-input-block">
+            <textarea name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">文章编辑</label>
+        <div class="layui-input-block">
+        <div id="editor">
+            <p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p>
+        </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" id="btnSubmit" lay-submit lay-filter="formDemo">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+
+</form>
+</div>
+
+<style>
+    .div-block{
+        padding:20px 20px;
+        background:#ffffff;
+    }
+</style>
+<div th:replace="common/common_foot::foot"></div>
+<script>
+    $(function(){
+        $(".layui-input-block").on("click",".layui-unselect.layui-form-radio",function(e){
+
+            $(".layui-unselect.layui-form-radio").removeClass("layui-form-radioed");
+            $(".layui-unselect.layui-form-radio").prev("input[type='radio']").attr('checked',false);
+
+            $(".layui-unselect.layui-form-radio").find("i.layui-anim.layui-icon").removeClass("layui-anim-scaleSpring");
+            $(".layui-unselect.layui-form-radio").find("i.layui-anim.layui-icon").html("&#xe643;");
+
+
+
+            $(this).addClass("layui-form-radioed");
+            $(this).find("i.layui-anim.layui-icon").addClass("layui-anim-scaleSpring");
+            $(this).find("i.layui-anim.layui-icon").html("&#xe643;");
+            $(this).prev("input[type='radio']").attr('checked',true);
+
+        });
+    })
+</script>
+<script th:src="@{/js/wangEditor.js}"></script>
+<script th:src="@{/js/jquery.form.min.js}"></script>
+<script type="text/javascript">
+    $(function(){
+        var E = window.wangEditor;
+        var editor = new E('#editor');
+        editor.create();
+
+
+
+       $("#btnSubmit").click(function(){
+           var options = {
+               beforeSubmit: showRequest,  //提交前的回调函数
+               success: showResponse,      //提交后的回调函数
+               url: '/article',                 //默认是form的action， 如果申明，则会覆盖
+               type: 'post',               //默认是form的method（get or post），如果申明，则会覆盖
+               dataType: 'json',           //html(默认), xml, script, json...接受服务端返回的类型
+               //clearForm: true,          //成功提交后，清除所有表单元素的值
+               //resetForm: true,          //成功提交后，重置所有表单元素的值
+               data:{content:editor.txt.html()}
+           };
+           $("#form").ajaxForm(options);
+       });
+
+
+        function showRequest(formData, jqForm, options){
+            //formData: 数组对象，提交表单时，Form插件会以Ajax方式自动提交这些数据，格式如：[{name:user,value:val },{name:pwd,value:pwd}]
+            //jqForm:   jQuery对象，封装了表单的元素
+            //options:  options对象
+            var queryString = $.param(formData);   //name=1&address=2
+            var formElement = jqForm[0];              //将jqForm转换为DOM对象
+            return true;  //只要不返回false，表单都会提交,在这里可以对表单元素进行验证
+        };
+
+        function showResponse(responseText, statusText){
+             console.log(statusText);
+        };
+
+    })
+
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="common/common_header::header">
+    <meta charset="UTF-8">
+    <title th:text="首页"></title>
+
+</head>
+<body style=" background-color: #F2F2F2;overflow:auto;">
+<style>
+    .navbar{
+        margin-bottom: 0px;
+    }
+
+</style>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">个人博客</a>
+        </div>
+        <div style="float:left;">
+            <ul class="nav navbar-nav">
+                <li><a href="#">栏目</a></li>
+            </ul>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> 注册</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div  class="content" style="padding-top:20px;">
+    <iframe src ="/articles/25" id="iframe" frameborder="0"></iframe>
+</div>
+
+
+<div th:replace="common/common_foot::foot"></div>
+<script th:src="@{/js/self_adaption.js}"></script>
+<link rel="stylesheet" th:href="@{/css/mobile/home/index.css}">
+<script>
+    $(function(){
+
+        console.log(window.screen.availWidth);
+        /**
+        var options={"offsetHeight":-1000};
+
+        console.log($("#iframe").height());
+        $(".content").adapt(options);
+         */
+
+
+
+    });
+</script>
+</body>
+</html>

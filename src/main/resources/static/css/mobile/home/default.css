@@ -1,0 +1,135 @@
+.layui-card:last-child{
+    margin-bottom:12px;
+}
+.layui-card-header{
+    font-weight: bold;
+}
+.layui-card-body{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    height:130px;
+}
+.card-body-text{
+    float:left;
+    height:130px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+}
+.card-body-image{
+    float:right;
+}
+.card-body-image img{
+    width:150px;
+    height:100px;
+    border-radius:0.5em;
+}
+.layui-card-foot{
+    position: relative;
+    height: 26px;
+    line-height: 26px;
+    padding: 0 15px;
+    border-bottom: 1px solid #f6f6f6;
+    color: #333;
+    border-radius: 2px 2px 0 0;
+    font-size: 14px;
+}
+
+
+@media screen and (min-width:800px){
+
+    .card-body-text {
+        float: left;
+        width: 75%;
+        height:130px;
+        overflow: hidden;
+        text-overflow:ellipsis;
+    }
+    .layui-card-body{
+        height:130px;
+        overflow: hidden;
+        text-overflow:ellipsis;
+    }
+}
+@media screen and (min-width:700px) and (max-width:800px){
+
+    .card-body-text {
+        float: left;
+        width: 67%;
+        height:130px;
+        overflow: hidden;
+        text-overflow:ellipsis;
+    }
+    .layui-card-body{
+        height:130px;
+        overflow: hidden;
+        text-overflow:ellipsis;
+    }
+    .layui-col-md8.sidebar-left{
+        float:left;
+        width:70%;
+    }
+    .layui-col-md4.sidebar-right{
+        float:right;
+        width:30%;
+    }
+}
+@media screen and (min-width:400px) and (max-width:700px){
+
+    .card-body-text {
+        float: left;
+        width: 58%;
+        height:130px;
+        overflow: hidden;
+        text-overflow:ellipsis;
+    }
+    .layui-card-body{
+        height:130px;
+        overflow: hidden;
+        text-overflow:ellipsis;
+    }
+}
+@media screen and (min-width:370px) and (max-width:400px){
+
+    .card-body-text {
+        float: left;
+        width: 53%;
+        height:130px;
+        overflow: hidden;
+        text-overflow:ellipsis;
+    }
+    .layui-card-body{
+        height:130px;
+        overflow: hidden;
+        text-overflow:ellipsis;
+    }
+}
+@media screen and (min-width:320px) and (max-width:370px){
+
+    .card-body-text {
+        float: left;
+        width: 45%;
+        height:130px;
+        overflow: hidden;
+        text-overflow:ellipsis;
+    }
+    .layui-card-body{
+        height:130px;
+        overflow: hidden;
+        text-overflow:ellipsis;
+    }
+}
+@media screen and (max-width:320px){
+
+    .card-body-text {
+        float: left;
+        width: 40%;
+        height:130px;
+        overflow: hidden;
+        text-overflow:ellipsis;
+    }
+    .layui-card-body{
+        height:130px;
+        overflow: hidden;
+        text-overflow:ellipsis;
+    }
+}

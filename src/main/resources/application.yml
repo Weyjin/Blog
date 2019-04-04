@@ -1,0 +1,37 @@
+server:
+  port: 8081
+  tomcat:
+    uri-encoding: utf-8
+spring:
+  application:
+    name: blog # 应用名称
+  profiles:
+    active: dve #指定当前的活动配置文件，主要用于多环境多配置文件的应用中
+  datasource:
+    name: test
+    url: jdbc:mysql://127.0.0.1:3306/blog?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: 12345678
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+  thymeleaf:
+    suffix: .html
+    cache: false
+    check-template-location: true
+    enabled: true
+    mode: HTML
+    prefix: classpath:/templates/
+  devtools:
+    restart:
+      enabled: true
+
+
+# 打印sql
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+  type-aliases-package: com.blog.entity
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

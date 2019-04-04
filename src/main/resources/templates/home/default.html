@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="common/common_header::header">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="layui-row layui-col-space15">
+
+    <div class="layui-col-md8 sidebar-left">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">微服务的4个设计原则和19个解决方案</div>
+                <div class="layui-card-body">
+                    <div class="card-body-text">
+                        曾经刚出来工作，没钱，买不起笔记本电脑。一次出差在大山里调仪器，要重写代码，走了很远的路找到一镇上网吧。插上U盘，装好编译环境，PAPA写了一宿，旁边都是打游戏的，写完拷贝回去到仪器上一运行，系统提示全是病毒，然后仪器系统直接奔溃。。。后来发誓一定要带自己的电脑出差，然后就有了我同事提个主机箱，我带显示屏的奇葩行径。
+
+                    </div>
+                    <div class="card-body-image">
+                        <img th:src="@{/images/image.jpg}"/>
+                    </div>
+                </div>
+                <div class="layui-card-foot">
+                    👦爱学习的   &nbsp;&nbsp;&nbsp; 👁20    &nbsp;&nbsp;💬28  &nbsp;&nbsp; ❤56
+                </div>
+            </div>
+        </div>
+
+        <!--分页-->
+        <div class="layui-col-md12">
+            <ul class="pagination pagination-lg">
+                <li><a href="#">&laquo;</a></li>
+                <li class="active"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&raquo;</a></li>
+            </ul>
+            <div class="paging" id="paging"></div>
+        </div>
+        <!--分页 end-->
+
+
+    </div>
+    <div class="layui-col-md4 sidebar-right">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">卡片面板</div>
+                <div class="layui-card-body">
+                        结合 layui 的栅格系统
+                        轻松实现响应式布局
+                </div>
+            </div>
+        </div>
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">卡片面板</div>
+                <div class="layui-card-body">
+                    结合 layui 的栅格系统<br>
+                    轻松实现响应式布局
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="common/common_foot::foot"></div>
+<link rel="stylesheet" th:href="@{/css/mobile/home/default.css}">
+
+</body>
+</html>

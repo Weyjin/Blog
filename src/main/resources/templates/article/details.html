@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="common/common_header::header">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background:#ffffff;">
+<div id="content" th:utext="${article.getContent()}"></div>
+<link rel="stylesheet" th:href="@{/css/wangEditor.css}">
+</body>
+</html>
